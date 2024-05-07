@@ -115,6 +115,10 @@ function Home2() {
     const paisEncontrado = dataPaises.find((pais) => pais.pais === valorPais);
     return paisEncontrado ? paisEncontrado.id_pais : null;
   };
+  const obtenerIdCursoPorValor = (valorCurso, dataCursos) => {
+    const cursoEncontrado = dataCursos.find((curso) => curso.nombre_curso === valorCurso);
+    return cursoEncontrado ? cursoEncontrado.id_curso : null;
+  };
   //  HANDLES DE INTERACCION
   const handleClose = () => setShowUsuario(false);
   const handleClosePE = () => setShowUsuarioPE(false);
@@ -1578,9 +1582,13 @@ function Home2() {
                 <select
                   value={cursoSelect}
                   onChange={(e) => {
+                    const id_curso = obtenerIdCursoPorValor(
+                      e.target.value,
+                      dataCursos
+                    );
                     setCursoSelect(e.target.value);
                     setCursoEditSelect({
-                      id_curso: e.target.selectedIndex,
+                      id_curso: id_curso,
                       nombre_curso: e.target.value,
                     });
                   }}
