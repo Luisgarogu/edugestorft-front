@@ -41,4 +41,21 @@ El backend estará disponible en [http://localhost:8080](http://localhost:8080).
 
 
 
+SCRIPTS: 
 
+INSERT INTO pais (pais) VALUES
+('CO'),
+('AD'),
+('AF'),
+('BR'),
+('CD'),
+('CF'),
+('CG'),
+('KR'),
+('KZ'),
+('LA');
+
+INSERT INTO rol (nombre) VALUES 
+('rector'),
+('estudiante')
+('profesor')
