@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ServiceLogin {
    constructor() {
-    this.baseUrl = 'http://localhost:8080/api/v1/';
+    this.baseUrl = 'http://localhost:8080/api/v1';
   }
   /* GETTERS */
   getLogin = (usuario, contrasena) => {
@@ -13,7 +13,7 @@ class ServiceLogin {
     return new Promise((resolve, reject) => {
       console.log(data);
       axios
-        .post(`${this.baseUrl}loginUsuario`, data)
+        .post(`${this.baseUrl}/loginUsuario`, data)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -26,7 +26,7 @@ class ServiceLogin {
   getPersonsByDni = (dni) => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getPersonByDni/${dni}`)
+        .get(`${this.baseUrl}/getPersonByDni/${dni}`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -39,7 +39,7 @@ class ServiceLogin {
   getUsersByRol = (idRol) => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getUsersByRol/${idRol}`)
+        .get(`${this.baseUrl}/getUsersByRol/${idRol}`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -51,7 +51,7 @@ class ServiceLogin {
   getUsers = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getUsuarios`)
+        .get(`${this.baseUrl}/getUsuarios`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -64,7 +64,7 @@ class ServiceLogin {
   getRoles = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getRoles`)
+        .get(`${this.baseUrl}/getRoles`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -77,7 +77,7 @@ class ServiceLogin {
   getCursos = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getCursos`)
+        .get(`${this.baseUrl}/getCursos`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -90,7 +90,7 @@ class ServiceLogin {
   getPaises = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseUrl}getPaises`)
+        .get(`${this.baseUrl}/getPaises`)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -104,7 +104,7 @@ class ServiceLogin {
 
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.baseUrl}getMatriculasByUsuario`, {
+        .post(`${this.baseUrl}/getMatriculasByUsuario`, {
           id_usuario: usuario,
         })
         .then((Response) => {
@@ -120,7 +120,7 @@ class ServiceLogin {
   postPersona = (persona) => {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.baseUrl}postPersona`, persona)
+        .post(`${this.baseUrl}/postPersona`, persona)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -135,7 +135,7 @@ class ServiceLogin {
     }
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.baseUrl}postCurso`, curso)
+        .post(`${this.baseUrl}/postCurso`, curso)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -147,7 +147,7 @@ class ServiceLogin {
   postUsuario = (usuario) => {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.baseUrl}postUsuario`, usuario)
+        .post(`${this.baseUrl}/postUsuario`, usuario)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -159,7 +159,7 @@ class ServiceLogin {
   postMatricula = (matricula) => {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.baseUrl}postMatricula`, matricula)
+        .post(`${this.baseUrl}/postMatricula`, matricula)
         .then((Response) => {
           resolve(Response.data);
         })
@@ -172,7 +172,7 @@ class ServiceLogin {
   putUsersById = (idUsuario, usuario) => {
     return new Promise((resolve, reject) => {
       axios
-        .put(`${this.baseUrl}putUsuarios/${idUsuario}`, usuario)
+        .put(`${this.baseUrl}/putUsuarios/${idUsuario}`, usuario)
         .then(resolve(Response.data))
         .catch((error) => {
           reject(error);
@@ -183,7 +183,7 @@ class ServiceLogin {
   putPersonsById = (idPersona, persona) => {
     return new Promise((resolve, reject) => {
       axios
-        .put(`${this.baseUrl}putPersona/${idPersona}`, persona)
+        .put(`${this.baseUrl}/putPersona/${idPersona}`, persona)
         .then(resolve(Response.data))
         .catch((error) => {
           reject(error);
@@ -197,7 +197,7 @@ class ServiceLogin {
     }
     return new Promise((resolve, reject) => {
       axios
-        .put(`${this.baseUrl}putCurso/${id}`, cuerpoCurso)
+        .put(`${this.baseUrl}/putCurso/${id}`, cuerpoCurso)
         .then(resolve(Response.data))
         .catch((error) => {
           reject(error);
@@ -208,7 +208,7 @@ class ServiceLogin {
   deleteUserById = (id) => {
     return new Promise((resolve, reject) => {
       axios
-        .delete(`${this.baseUrl}deleteUser/${id}`)
+        .delete(`${this.baseUrl}/deleteUser/${id}`)
         .then(resolve(Response.data))
         .catch((error) => reject(error));
     });
@@ -217,7 +217,7 @@ class ServiceLogin {
   deleteMatriculaById = (id) => {
     return new Promise((resolve, reject) => {
       axios
-        .delete(`${this.baseUrl}deleteMatricula/${id}`)
+        .delete(`${this.baseUrl}/deleteMatricula/${id}`)
         .then(resolve(Response.data))
         .catch((error) => reject(error));
     });
@@ -225,7 +225,7 @@ class ServiceLogin {
   deleteCursoById = (id) => {
     return new Promise((resolve, reject) => {
       axios
-        .delete(`${this.baseUrl}deleteCursoById/${id}`)
+        .delete(`${this.baseUrl}/deleteCursoById/${id}`)
         .then(resolve(Response.data))
     });
   };

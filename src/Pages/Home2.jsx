@@ -1586,6 +1586,7 @@ function Home2() {
                       e.target.value,
                       dataCursos
                     );
+                    console.log(id_curso)
                     setCursoSelect(e.target.value);
                     setCursoEditSelect({
                       id_curso: id_curso,
