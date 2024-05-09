@@ -72,6 +72,12 @@ VALUES ("Admin", 1)
 INSERT INTO usuario (usuario,contrasena,persona_id,id_rol)
 VALUES ("Admin", "admin123", 1,1)
 
+#INGRESO A LA APLICACION WEB: 
+
+EN EL LOGIN->
+   Ingrese el usuario: Admin
+   Ingrese la contraseña: admin123
+
 
 
 
