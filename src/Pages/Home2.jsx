@@ -80,7 +80,7 @@ function Home2() {
     AOS.init();
   }, []);
 
-  //CONSTANTES DE ABSTRACCION DE DATOS
+  //CONSTANTES/FUNCIONES DE ABSTRACCION DE DATOS
 
   // eliminar acentos, eñes y números
   const limpiarTexto = (texto) => {
@@ -119,6 +119,10 @@ function Home2() {
     const cursoEncontrado = dataCursos.find((curso) => curso.nombre_curso === valorCurso);
     return cursoEncontrado ? cursoEncontrado.id_curso : null;
   };
+  const obtenerIdRolPorValor = (valorRol, dataRoles) => {
+    const rolEncontrado = dataRoles.find((rol) => rol.nombre === valorRol);
+    return rolEncontrado ? rolEncontrado.id : null;
+  };
   //  HANDLES DE INTERACCION
   const handleClose = () => setShowUsuario(false);
   const handleClosePE = () => setShowUsuarioPE(false);
@@ -133,7 +137,7 @@ function Home2() {
     setFiltro(event);
   };
 
-  //EVITAR ESCRITURA
+  //EVITAR Ñ, SIGNOS, NUMEROS
   const handleKeyPress = (e) => {
     const inputValue = e.target.value;
     const charCode = e.which || e.keyCode;
@@ -387,10 +391,10 @@ function Home2() {
   function renderUsuarios(usuarios) {
     let usuariosFiltrados;
     if (filtro === "estdts") {
-      usuariosFiltrados = usuarios.filter((usuario) => usuario.rol.id === 3);
+      usuariosFiltrados = usuarios.filter((usuario) => usuario.rol.nombre === "estudiante");
       console.log(usuariosFiltrados);
     } else if (filtro === "prfsrs") {
-      usuariosFiltrados = usuarios.filter((usuario) => usuario.rol.id === 2);
+      usuariosFiltrados = usuarios.filter((usuario) => usuario.rol.nombre === "profesor");
       console.log(usuariosFiltrados);
     }
 
@@ -1055,9 +1059,11 @@ function Home2() {
                         <select
                           value={usuarioRolEdit}
                           onChange={(e) => {
+                            const idRol= obtenerIdRolPorValor(e.target.value,dataRoles);
                             setUsuarioRolEdit(e.target.value);
+                            console.log(idRol,e.target.value)
                             setUsuarioRolEditSelect({
-                              id: e.target.selectedIndex,
+                              id: idRol,
                               nombre: e.target.value,
                             });
                           }}
@@ -1229,9 +1235,10 @@ function Home2() {
                         <select
                           value={usuarioRolEdit}
                           onChange={(e) => {
+                            const idRol= obtenerIdRolPorValor(e.target.value,dataRoles);
                             setUsuarioRolEdit(e.target.value);
                             setUsuarioRolEditSelect({
-                              id: e.target.selectedIndex,
+                              id: idRol,
                               nombre: e.target.value,
                             });
                           }}
