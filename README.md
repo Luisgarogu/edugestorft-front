@@ -59,3 +59,10 @@ INSERT INTO rol (nombre) VALUES
 ('rector'),
 ('estudiante'),
 ('profesor')
+
+INSERT INTO persona (nombre,pais_id_pais) 
+VALUES ("Admin", 1)
+
+
+INSERT INTO usuario (usuario,contrasena,persona_id,id_rol)
+VALUES ("Admin", "admin123", 1,1)
