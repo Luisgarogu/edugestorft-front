@@ -57,5 +57,5 @@ INSERT INTO pais (pais) VALUES
 
 INSERT INTO rol (nombre) VALUES 
 ('rector'),
-('estudiante')
+('estudiante'),
 ('profesor')
